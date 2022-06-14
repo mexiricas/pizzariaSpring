@@ -1,0 +1,25 @@
+
+
+server:
+  error:
+    include-stacktrace: on-param
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pizza?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: denis
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      database: mysql
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
