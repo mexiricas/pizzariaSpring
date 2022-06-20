@@ -1,25 +1,33 @@
 package pizzariaSpring.br.com.pizzaria.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import pizzariaSpring.br.com.pizzaria.repository.PizzaRepository;
+import org.springframework.web.bind.annotation.*;
+import pizzariaSpring.br.com.pizzaria.model.Pizza;
+import pizzariaSpring.br.com.pizzaria.service.PizzaService;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("pizzas")
+@RequestMapping("/pizzas")
 public class PizzariaControler {
 
     @Autowired
-    private  PizzaRepository pizzaRepository;
+    private PizzaService pizzaService;
 
+    @GetMapping
+    public List<Pizza>  findAll(){
+        return  pizzaService.findAll();
+    }
 
     @GetMapping("/quantas")
     public String quantasPizzas(){
-        return "Atualmente temos " + pizzaRepository.count() + " pedidas";
+        return "Atualmente temos " + pizzaService.count() + " pedidas";
     }
 
-
+    @PostMapping
+    public Pizza salvar(@RequestBody Pizza p){
+       return pizzaService.salvar(p);
+    }
 
 
 }
