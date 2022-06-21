@@ -22,6 +22,7 @@ public class Pizza {
     private Long id;
     private String nome;
     private Double preço;
+
     @Enumerated(EnumType.STRING)
     private PizzaCategoria categoria;
 

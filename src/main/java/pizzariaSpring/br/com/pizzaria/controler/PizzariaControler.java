@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pizzariaSpring.br.com.pizzaria.model.Pizza;
 import pizzariaSpring.br.com.pizzaria.service.PizzaService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,11 +20,15 @@ public class PizzariaControler {
         return  pizzaService.findAll();
     }
 
-    @GetMapping("/quantas")
-    public String quantasPizzas(){
-        return "Atualmente temos " + pizzaService.count() + " pedidas";
+    @GetMapping("/quantasbroto")
+    public String quantasPizzasBroto(@RequestParam @Valid String categoria){
+        return "Atualmente temos " + pizzaService.findByCategoria(categoria).size() + " pizzas " +categoria+ " pedidas";
     }
 
+    @GetMapping("/quantasmedia/{categoria}")
+    public String quantasPizzasMedia(){
+        return "Atualmente temos " + pizzaService.count() + " pedidas";
+    }
     @PostMapping
     public Pizza salvar(@RequestBody Pizza p){
        return pizzaService.salvar(p);
