@@ -15,10 +15,4 @@ public enum PizzaCategoria {
         this.desc = desc;
         this.id = id;
     }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(desc);
-    }
 }
