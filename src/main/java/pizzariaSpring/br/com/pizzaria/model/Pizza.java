@@ -21,7 +21,7 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Double preço;
+    private Double preco;
 
     @Enumerated(EnumType.STRING)
     private PizzaCategoria categoria;

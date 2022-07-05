@@ -21,10 +21,13 @@ public class PizzaService {
         return  pizzaRepository.findAll();
     }
 
+    public Pizza findByIdOrElse(Long id){
+        return pizzaRepository.findById(id).orElseThrow(() -> new RuntimeException("Objetc not Found"));
+    }
+
     public List<Pizza> findByCategoria(String categoria){
-        PizzaCategoria pizzaCategoria =  PizzaCategoria.valueOf(categoria);
-        pizzaCategoria.getDesc();
-        if(isNull(pizzaCategoria)) {
+        if(!isNull(PizzaCategoria.valueOf(categoria))) {
+            PizzaCategoria pizzaCategoria = PizzaCategoria.valueOf(categoria) ;
             return pizzaRepository.findByCategoria(pizzaCategoria);
         }
         return  new ArrayList<Pizza>();
@@ -34,7 +37,24 @@ public class PizzaService {
         return pizzaRepository.save(p);
     }
 
+
+    public void deletarPizza(Long id) {
+        if(!isNull(findByIdOrElse(id))){
+            pizzaRepository.deleteById(id);
+        }
+    }
+    public Pizza replace(Pizza p) {
+        Pizza pizzaSave = findByIdOrElse(p.getId());
+        p.setId(pizzaSave.getId());
+        return pizzaRepository.save(p);
+
+    }
+
     public Long count(){
         return pizzaRepository.count();
+    }
+
+    public PizzaCategoria[] enumAll() {
+        return  PizzaCategoria.values();
     }
 }
