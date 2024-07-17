@@ -22,12 +22,12 @@ mvnw
 *.iml
 *.ipr
 !**/br.com.pizzaria/.idea
-!**/pizzariaSpring/pizzariaangular/node_modules
-!**/pizzariaSpring/pizzariaangular/.angular
-!**/pizzariaSpring/pizzariaangular/.vscode
-!**/pizzariaSpring/pizzariaangular/src/assets
+!**/pizzariaSpring/fontend/pizzariaangular/node_modules
+!**/pizzariaSpring/fontend/pizzariaangular/.angular
+!**/pizzariaSpring/fontend/pizzariaangular/.vscode
+!**/pizzariaSpring/fontend/pizzariaangular/src/assets
+!**/pizzariaSpring/fontend/pizzariaangular/package-lock.json
 
-/pizzariaSpring/target
 
 ### NetBeans ###
 /nbproject/private/
