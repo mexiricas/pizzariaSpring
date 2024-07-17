@@ -6,7 +6,6 @@ target/
 mvnw.cmd
 mvnw
 .mvn
-C:\Users\Denis\Downloads\br.com.pizzaria\.mvn
 
 ### STS ###
 .apt_generated
@@ -22,11 +21,13 @@ C:\Users\Denis\Downloads\br.com.pizzaria\.mvn
 *.iws
 *.iml
 *.ipr
-C:\Users\Denis\Downloads\br.com.pizzaria\.idea
-C:\Users\user\Documents\Projetos\pizzariaSpring\pizzariaangular\node_modules
-C:\Users\user\Documents\Projetos\pizzariaSpring\pizzariaangular\.angular
-C:\Users\user\Documents\Projetos\pizzariaSpring\pizzariaangular\.vscode
-C:\Users\user\Documents\Projetos\pizzariaSpring\pizzariaangular\src\assets
+!**/br.com.pizzaria/.idea
+!**/pizzariaSpring/pizzariaangular/node_modules
+!**/pizzariaSpring/pizzariaangular/.angular
+!**/pizzariaSpring/pizzariaangular/.vscode
+!**/pizzariaSpring/pizzariaangular/src/assets
+
+/pizzariaSpring/target
 
 ### NetBeans ###
 /nbproject/private/

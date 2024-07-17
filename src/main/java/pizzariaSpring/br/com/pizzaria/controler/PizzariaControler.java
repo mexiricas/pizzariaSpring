@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class PizzariaControler {
 
     @Autowired private PizzaService pizzaService;
+
     @GetMapping
     public List<Pizza>  findAll(){
         return  pizzaService.findAll();
@@ -39,6 +40,7 @@ public class PizzariaControler {
     public String quantasPizzas(){
         return "Atualmente temos " + pizzaService.count() + " pedidas";
     }
+
     @PostMapping
     public Pizza salvar(@RequestBody Pizza p){return pizzaService.salvar(p); }
 
