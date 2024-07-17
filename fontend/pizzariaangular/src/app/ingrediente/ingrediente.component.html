@@ -1,0 +1,130 @@
+<div class="container" id="main-container">
+    <div class="row">
+        <table class="table col-12 col-md-8">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Editar
+                        <div class="float-right btn-group btn-group-sm">
+                            Adicionar Ingrediente <a style="margin-left: 20px;" (click)="onOpenModal(null , 'add')"
+                                class=" btn btn-success tooltips" data-placement="top" data-original-title="Edit"><i
+                                    class="fa fa-plus"></i> </a>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of ingredientes">
+                    <td>{{i?.id }}</td>
+                    <td>{{i?.nome }}</td>
+                    <td>{{i?.categoria}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+
+                            <a (click)="onOpenModal(i, 'edit')" class="btn btn-primary tooltips" data-placement="top"
+                                data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                            <a (click)="onOpenModal(i, 'delete')" class="btn btn-secondary tooltips"
+                                data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Add Itens -->
+        <div class="modal fade" id="addIngredienteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addIngredienteModalLabel">Adicionar novos Ingredientes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form #addForm="ngForm" (ngSubmit)="onAddIngrediente(addForm)">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" ngModel name="nome" class="form-control" id="nome" placeholder="nome"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria</label>
+                                <select class="form-control" ngModel id="categoria" name="categoria">
+                                    <option *ngFor="let e of enumIngrediente" [ngValue]="e">{{e}}</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="add-ingrediente-form" class="btn btn-secondary"
+                                    data-dismiss="modal">Close</button>
+                                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save
+                                    changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit itens -->
+        <div class="modal fade" id="updateIngredienteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateIngredienteModalLabel">Editar Ingredientes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form #editForm="ngForm">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" ngModel="{{ingrediente?.nome}}" name="nome" class="form-control"
+                                    id="nome" placeholder="nome" required>
+                                <input type="hidden" ngModel="{{ingrediente?.id}}" name="id" class="form-control"
+                                    id="id">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria</label>
+                                <select ngModel="{{ingrediente?.categoria}}"  class="form-control" id="categoria"
+                                    name="categoria"  >
+                                    <option *ngFor="let e of enumIngrediente" [selected]="e" [value]="e" >{{e}}</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="" class="btn btn-secondary"
+                                    data-dismiss="modal">Close</button>
+                                <button (click)="onUpdateIngrediente(editForm.value)" type="submit"
+                                    class="btn btn-primary" data-dismiss="modal">Save
+                                    changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Ingrediente -->
+        <div class="modal fade" id="deleteIngredienteModal" tabindex="-1" role="dialog"
+            aria-labelledby="deleteModelLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModelLabel">Deletar Ingredientes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja deletar o Ingrediente {{ingredienteDelete?.id}}-{{ingredienteDelete?.nome}}?</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button (click)="onDeleteIngrediente(ingredienteDelete?.id)" class="btn btn-danger"
+                                data-dismiss="modal">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

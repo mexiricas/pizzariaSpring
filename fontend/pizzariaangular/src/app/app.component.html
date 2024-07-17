@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+   <div class="container">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="fa fa-bars"></span> Menu
+      </button>
+      <form action="#" class="searchform order-lg-last">
+         <div class="form-group d-flex">
+            <input type="text" class="form-control pl-3" placeholder="Search">
+            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+         </div>
+      </form>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+         <ul class="navbar-nav mr-auto">
+            <li routerLinkActive="active" class="nav-item"><a routerLink="/homes" class="nav-link"> <img
+                     src="../assets/image/logo_pq.png" /></a></li>
+            <!-- <li routerLinkActive="active" class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" routerLink="" id="dropdown04" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Page</a>
+               <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" routerLink="">Page 1</a>
+                  <a class="dropdown-item" routerLink="">Page 2</a>
+                  <a class="dropdown-item" routerLink="">Page 3</a>
+                  <a class="dropdown-item" routerLink="">Page 4</a>
+               </div>
+            </li> -->
+            <li routerLinkActive="active" class="nav-item"><a routerLink="/pizza" class="nav-link">Pizza</a></li>
+            <li routerLinkActive="active" class="nav-item"><a routerLink="/ingrediente" class="nav-link">Ingrediente</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item"><a routerLink="" class="nav-link">Contact</a></li>
+         </ul>
+      </div>
+   </div>
+</nav>
+<div class="container">
+   <router-outlet></router-outlet>
+</div>
