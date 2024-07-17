@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Ingrediente } from './../ingrediente/Ingrediente';
 import { Pizza } from './pizza';
+import { EnumPizza } from './PizzaEnum';
 
 
 @Injectable({
@@ -31,8 +32,8 @@ export class PizzaService {
     return this.http.post<Pizza>(`${this.apiServerUrl}/pizzas`, pizza);
   }
 
-  public getListaPizzasEnum(): Observable<Pizza[]> {
-    return this.http.get<Pizza[]>(`${this.apiServerUrl}/pizzas/enum`);
+  public getListaPizzasEnum(): Observable<EnumPizza[]> {
+    return this.http.get<EnumPizza[]>(`${this.apiServerUrl}/pizzas/enum`);
   }
 
   public updatePizza(pizza: Pizza): Observable<Pizza> {

@@ -72,9 +72,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="categoria">Ingrediente</label>
-                                <select class="form-control" multiple ngModel id="Pizza" name="Pizza">
-                                    <option *ngFor="let p of pizzas" [ngValue]="p">{{p.nome}}</option>
+                                <label for="ingrediente">Ingrediente</label>
+                                <select multiple class="form-control" ngModel id="ingredientes" name="ingredientes">
+                                    <option *ngFor="let e of ingredientes" [ngValue]="e">{{e.nome}}</option>
                                 </select>
                             </div>
                             <div class="modal-footer">
@@ -121,8 +121,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="ingrediente">Ingrediente</label>
-                                <select class="form-control" multiple ngModel id="ingrediente" name="ingrediente">
-                                    <option *ngFor="let p of pizza.ingredientes" [ngValue]="p">{{p.nome}}</option>
+                                <select class="form-control" multiple ngModel="{pizza?.ingredientes}" id="ingrediente" name="ingrediente">
+                                    <option *ngFor="let p of ingredientes" [ngValue]="p">{{p.nome}}</option>
                                 </select>
                             </div>
                             <div class="modal-footer">

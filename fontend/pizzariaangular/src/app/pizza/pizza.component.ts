@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
-import { IngredienteService } from './../ingrediente/ingrediente.service';
 import { PizzaService } from './pizza.service';
 import { Ingrediente } from './../ingrediente/Ingrediente';
 import { Pizza } from './pizza';
@@ -25,6 +24,7 @@ export class PizzaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListagemPizzas();
+    this.getListagemIngrediente();
     this.getListagemEnumPizzas();
     // this.getQtd();
   }
@@ -128,6 +128,7 @@ export class PizzaComponent implements OnInit {
     button.setAttribute('data-toggle', 'modal');
     if (mode === 'add') {
       this.getListagemIngrediente();
+      this.pizza= null;
       button.setAttribute('data-target', '#addPizzaModal');
     }
     if (mode === 'edit') {

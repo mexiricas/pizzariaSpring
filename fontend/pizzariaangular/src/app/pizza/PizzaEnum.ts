@@ -1,3 +1,4 @@
 export interface EnumPizza {
-    categoria: string;
+    desc: string;
+    id: number;
 }
