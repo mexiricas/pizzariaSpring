@@ -37,8 +37,8 @@ public class PizzariaControler {
         return  enumLista;
     }
     @GetMapping("quantaspizzas")
-    public String quantasPizzas(){
-        return "Atualmente temos " + pizzaService.count() + " pedidas";
+    public ResponseEntity<String> quantasPizzas(){
+        return ResponseEntity.ok(pizzaService.count().toString());
     }
 
     @PostMapping

@@ -26,11 +26,7 @@ public class PizzaService {
     }
 
     public List<Pizza> findByCategoria(String categoria){
-        if(!isNull(PizzaCategoria.valueOf(categoria))) {
-            PizzaCategoria pizzaCategoria = PizzaCategoria.valueOf(categoria) ;
-            return pizzaRepository.findByCategoria(pizzaCategoria);
-        }
-        return  new ArrayList<Pizza>();
+        return pizzaRepository.findByCategoria(PizzaCategoria.valueOf(categoria));
     }
 
     public Pizza salvar(Pizza p){

@@ -26,7 +26,7 @@ export class PizzaComponent implements OnInit {
     this.getListagemPizzas();
     this.getListagemIngrediente();
     this.getListagemEnumPizzas();
-    // this.getQtd();
+    this.getQtd();
   }
 
   public getQtd(): void {

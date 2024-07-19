@@ -25,7 +25,7 @@ export class PizzaService {
   }
 
   public getQtd(): Observable<String> {
-    return this.http.get<String>(`${this.apiServerUrl}/pizzas/quantaspizzas`);
+    return this.http.get(`${this.apiServerUrl}/pizzas/quantaspizzas`,{responseType: 'text'});
   }
 
   public addPizza(pizza: Pizza): Observable<Pizza> {
